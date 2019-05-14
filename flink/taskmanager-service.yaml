@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flink-taskmanager
+  namespace: flink
+spec:
+  clusterIP: None
+  ports:
+  - name: prom
+    port: 9999
+  selector:
+    app: flink
+    component: taskmanager
+  type: ClusterIP
+  sessionAffinity: None
