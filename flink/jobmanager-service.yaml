@@ -13,8 +13,6 @@ spec:
     port: 6125
   - name: ui
     port: 8081
-  - name: ha
-    port: 50010
   - name: prom
     port: 9999
   selector:
