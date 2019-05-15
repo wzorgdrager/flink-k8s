@@ -38,7 +38,7 @@ kubectl apply -f ./03-grafana/
 
 This deploys a prometheus instance, a grafana instance and a Flink
 cluster with **one** JobManager and **two** TaskManagers (consisting of
-16 Taskslots each). Flink is configured and deployed to expose
+16 taskslots each). Flink is configured and deployed to expose
 (Prometheus) metrics on port **9999** for each Job and TaskManager.
 Prometheus scrapes Kubernetes endpoints based on a JobManager service
 and headless TaskManager service routing to the correct metric
