@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: flink-config
-  namespace: codefeedr
+  namespace: flink
   labels:
     app: flink
 data:
