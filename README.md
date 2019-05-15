@@ -47,12 +47,12 @@ deploying all the manifests:
 
 - The JobManager can be accessed by port-forwarding it:<br> `kubectl
 port-forward -n flink service/flink-jobmanager 8081:8081` <br> Now it
-runs on [localhost](localhost:8081).
+runs on [localhost](http://localhost:8081).
 - The Grafana dashboard can be accessed by port-forwarding as well: <br>
 `kubectl port-forward -n monitoring service/grafana 3000:3000` <br> Not
-it runs on [localhost](localhost:3000). Username: **flink**, password:
-**flink-awesome**. A Flink dashboard has been imported already. It
-should look like this:    
+it runs on [localhost](http://localhost:3000). Username: **flink**,
+password: **flink-awesome**. A Flink dashboard has been imported
+already. It should look like this:    
 
 
 
