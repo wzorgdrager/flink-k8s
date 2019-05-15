@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: flink-taskmanager
-  namespace: codefeedr
+  namespace: flink
 spec:
   replicas: 2
   selector:
