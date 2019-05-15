@@ -49,8 +49,8 @@ deploying all the manifests:
 port-forward -n flink service/flink-jobmanager 8081:8081` <br> Now it
 runs on [localhost](http://localhost:8081).
 - The Grafana dashboard can be accessed by port-forwarding as well: <br>
-`kubectl port-forward -n monitoring service/grafana 3000:3000` <br> Not
-it runs on [localhost](http://localhost:3000). Username: **flink**,
+`kubectl port-forward -n monitoring service/grafana 3000:3000` <br> Now
+it runs on [localhost](http://localhost:3000). <br> Username: **flink**,
 password: **flink-awesome**. A Flink dashboard has been imported
 already. It should look like this: <br> ![grafana](img/grafana_dash.png)
 
@@ -66,3 +66,5 @@ dashboard](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1
 ![after_scaling](img/after_scaling.png)
 
 ## Architecture
+
+![architecture](img/architecture.png)
