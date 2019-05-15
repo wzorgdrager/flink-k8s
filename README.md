@@ -68,3 +68,10 @@ dashboard](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1
 ## Architecture
 
 ![architecture](img/architecture.png)
+
+## Resources
+Most manifests in this repository are based on the following sources:
+- https://github.com/giantswarm/prometheus
+- https://sysdig.com/blog/kubernetes-monitoring-prometheus/
+-
+https://ci.apache.org/projects/flink/flink-docs-stable/ops/deployment/kubernetes.html
