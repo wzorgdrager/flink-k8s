@@ -7,8 +7,10 @@ The image can be found
 
 
 ## TL;DR
-`kubectl apply -f all-manifests.yaml`
-`kubectl port-forward -n monitoring service/grafana 3000:3000`
+```sh
+kubectl apply -f all-manifests.yaml
+kubectl port-forward -n monitoring service/grafana 3000:3000
+```
 
 Access Grafana Flink Dashboard on
 [localhost:3000](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1).
