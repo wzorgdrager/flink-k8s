@@ -37,22 +37,22 @@ kubectl apply -f ./03-grafana/
 ```
 
 This deploys a prometheus instance, a grafana instance and a Flink
-cluster with **one** JobManager and **two** TaskManager (consisting of
-16 Taskslots each). Flink and is configured and deployed to expose
+cluster with **one** JobManager and **two** TaskManagers (consisting of
+16 Taskslots each). Flink is configured and deployed to expose
 (Prometheus) metrics on port **9999** for each Job and TaskManager.
 Prometheus scrapes Kubernetes endpoints based on a JobManager service
 and headless TaskManager service routing to the correct metric
 endpoints. See [architecture](#architecture) for a global view. After
 deploying all the manifests:
 
-- The JobManager can be accessed by port-forwarding it:  
-  `kubectl port-forward -n flink service/flink-jobmanager 8081:8081`  
-  Now it runs on [localhost](localhost:8081).
-- The Grafana dashboard can be accessed by port-forwarding as well:  
-  `kubectl port-forward -n monitoring service/grafana 3000:3000`  
-  Not it runs on [localhost](localhost:3000). Username: **flink**,
-password: **flink-awesome**. A Flink dashboard has been imported
-already. It should look like this:   
+- The JobManager can be accessed by port-forwarding it:<br> `kubectl
+port-forward -n flink service/flink-jobmanager 8081:8081` <br> Now it
+runs on [localhost](localhost:8081).
+- The Grafana dashboard can be accessed by port-forwarding as well: <br>
+`kubectl port-forward -n monitoring service/grafana 3000:3000` <br> Not
+it runs on [localhost](localhost:3000). Username: **flink**, password:
+**flink-awesome**. A Flink dashboard has been imported already. It
+should look like this:    
 
 
 
