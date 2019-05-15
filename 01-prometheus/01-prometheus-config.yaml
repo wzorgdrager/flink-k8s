@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-cm
+  namespace: monitoring
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval:     15s # By default, scrape targets every 15 seconds.
+      evaluation_interval: 15s # Evaluate rules every 15 seconds.
+
+      # Attach these extra labels to all timeseries collected by this Prometheus instance.
+      external_labels:
+        monitor: 'codelab-monitor'
+
+    rule_files:
+      - 'prometheus.rules.yml'
+
+    scrape_configs:
+      - job_name: 'prometheus'
+
+        # Override the global default and scrape targets from this job every 5 seconds.
+        scrape_interval: 5s
+
+        static_configs:
+          - targets: ['localhost:9090']
+      - job_name: 'kubernetes-service-endpoints'
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_scrape]
+          action: keep
+          regex: true
+        - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_scheme]
+          action: replace
+          target_label: __scheme__
+          regex: (https?)
+        - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_path]
+          action: replace
+          target_label: __metrics_path__
+          regex: (.+)
+        - source_labels: [__address__, __meta_kubernetes_service_annotation_prometheus_io_port]
+          action: replace
+          target_label: __address__
+          regex: ([^:]+)(?::\d+)?;(\d+)
+          replacement: $1:$2
+        - action: labelmap
+          regex: __meta_kubernetes_service_label_(.+)
+        - source_labels: [__meta_kubernetes_namespace]
+          action: replace
+          target_label: kubernetes_namespace
+        - source_labels: [__meta_kubernetes_service_name]
+          action: replace
+          target_label: kubernetes_name
+      - job_name: 'flink'
+        kubernetes_sd_configs:
+        - role: endpoints
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_endpoints_name]
+          target_label: component
+          regex: (flink-taskmanager|flink-jobmanager)
+          action: keep
+        - source_labels: [__meta_kubernetes_endpoint_port_name]
+          target_label: __port_name__
+          regex: prom
+          action: keep
+        - source_labels: [__meta_kubernetes_pod_label_component]
+          target_label: component
+          regex: (taskmanager|jobmanager)
+          replacement: ${1}
