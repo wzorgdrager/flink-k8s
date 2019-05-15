@@ -52,7 +52,7 @@ runs on [localhost](http://localhost:8081).
 `kubectl port-forward -n monitoring service/grafana 3000:3000` <br> Not
 it runs on [localhost](http://localhost:3000). Username: **flink**,
 password: **flink-awesome**. A Flink dashboard has been imported
-already. It should look like this:    
+already. It should look like this: <br> ![grafana](img/grafana_dash.png)
 
 
 
