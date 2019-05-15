@@ -15,8 +15,6 @@ kubectl port-forward -n monitoring service/grafana 3000:3000
 Access Grafana Flink Dashboard on
 [localhost:3000](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1).
 
-<center>
 Login details  
 **username**: flink  
 **password**: flink-awesome  
-</center>
