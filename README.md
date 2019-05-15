@@ -22,12 +22,21 @@ Access Grafana Flink Dashboard on
 [localhost:3000](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1). This might take a few minutes.
 
 Grafana login details  
-**username**: flink  
-**password**: flink-awesome  
+username: **flink**  
+password: **flink-awesome**  
 
 ## Installation
 
-To see the service discovery working scale the TM instance from **two**
+Clone the repository and apply all configurations:
+```sh
+git clone https://github.com/wzorgdrager/flink-k8s
+cd flink-k8s
+kubectl apply -f ./01-prometheus/
+kubectl apply -f ./02-flink/
+kubectl apply -f ./03-grafana/
+```
+
+To see the service discovery working scale the TM instances from **two**
 to **four**:  
 `kubectl -n flink  scale deployment flink-taskmanager
 --replicas=4`:
