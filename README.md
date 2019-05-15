@@ -28,10 +28,12 @@ Grafana login details
 ## Installation
 
 To see the service discovery working scale the TM instance from **two**
-to **four**:   `kubectl -n flink  scale deployment flink-taskmanager
---replicas=4`
+to **four**:  
+`kubectl -n flink  scale deployment flink-taskmanager
+--replicas=4`:
 
 You can see these instances pop-up on the [Grafana
-dashboard](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1) 
+dashboard](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1):  
+![after_scaling](img/after_scaling.png)
 
 ## Architecture
