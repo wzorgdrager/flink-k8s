@@ -8,12 +8,13 @@ The image can be found
 
 ## TL;DR
 ```sh
-kubectl apply -f all-manifests.yaml
+git clone https://github.com/wzorgdrager/flink-k8s
+kubectl apply -R -f ./flink-k8s/
 kubectl port-forward -n monitoring service/grafana 3000:3000
 ```
 
 Access Grafana Flink Dashboard on
-[localhost:3000](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1).
+[localhost:3000](http://localhost:3000/dashboard/db/flink-dashboard?refresh=5s&orgId=1). This might take some time.
 
 Login details  
 **username**: flink  
