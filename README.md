@@ -1,4 +1,4 @@
-# Flink K8s cluster setup
+# Flink K8s setup with Prometheus service discovery
 This repository hosts manifests to configure a Kubernetes cluster with
 Flink monitored by Prometheus and Grafana using service discovery. Flink
 instances are automatically recognized and scraped by Prometheus.
