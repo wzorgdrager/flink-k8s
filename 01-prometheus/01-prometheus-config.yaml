@@ -25,6 +25,8 @@ data:
         static_configs:
           - targets: ['localhost:9090']
       - job_name: 'kubernetes-service-endpoints'
+        kubernetes_sd_configs:
+        - role: endpoints
         relabel_configs:
         - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_scrape]
           action: keep
@@ -50,19 +52,3 @@ data:
         - source_labels: [__meta_kubernetes_service_name]
           action: replace
           target_label: kubernetes_name
-      - job_name: 'flink'
-        kubernetes_sd_configs:
-        - role: endpoints
-        relabel_configs:
-        - source_labels: [__meta_kubernetes_endpoints_name]
-          target_label: component
-          regex: (flink-taskmanager|flink-jobmanager)
-          action: keep
-        - source_labels: [__meta_kubernetes_endpoint_port_name]
-          target_label: __port_name__
-          regex: prom
-          action: keep
-        - source_labels: [__meta_kubernetes_pod_label_component]
-          target_label: component
-          regex: (taskmanager|jobmanager)
-          replacement: ${1}
