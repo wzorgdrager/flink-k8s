@@ -14,9 +14,6 @@ spec:
       labels:
         app: flink
         component: taskmanager
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "9999"      
     spec:
       containers:
       - name: taskmanager

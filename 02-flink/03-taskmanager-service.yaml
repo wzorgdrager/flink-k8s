@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: flink-taskmanager
   namespace: flink
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9999"
 spec:
   clusterIP: None
   ports:
