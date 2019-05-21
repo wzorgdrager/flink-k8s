@@ -45,6 +45,8 @@ data:
 
     jobmanager.rpc.port: 6123
 
+    taskmanager.data.port: 6121
+
     # The BLOB port where the BlobServer is reachable.
 
     blob.server.port: 6124
